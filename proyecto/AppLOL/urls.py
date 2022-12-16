@@ -1,8 +1,10 @@
 from django.urls import path
-from AppLOL import views
+from AppLOL.views import *
+
 
 urlpatterns = [
-    path("", views.inicio) ,
-    path("items/", views.items) ,
-    path("campenes/", views.campeones) ,
+    path("", inicio, name="MENU" ) ,
+    path("items/",items) ,
+    path("campenes/", campeones) ,
+    path("login/", Login, name="inicio-sesion") , 
 ]
