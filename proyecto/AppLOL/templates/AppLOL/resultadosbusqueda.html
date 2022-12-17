@@ -3,7 +3,6 @@
     <head>
 
         {% load static %}
-       
 
 
 
@@ -32,38 +31,39 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                    <a class="navbar-brand" href="{%url 'Registrar-Usuario' %}">REGISTRAR</a></li>
-
-                
-                </ul>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'inicio' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'jungle' %}">Jungla</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'objetos' %}">Items</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'champs' %}">Campeones</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'people' %}">Comunidad</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'abouut' %}">¿Quienes Somos?</a></li>
              
             </div>
-            
+                <a class="navbar-brand" href="{%url 'MENU' %}">Cerrar Sesion</a>
         </nav>
         <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
-            <section class="resume-section" id="about">
+       
+            </section>
+            <hr class="m-0" />
+            <!-- Experience-->
+            <section class="resume-section" id="experience">
                 <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        INICIO
-                        <span class="text-primary">SESION</span>
-                    </h1>
-                    {% if errors %}
-                        <p>ERROR AL INICIAR SESION: {{errors}}</p>
-                    {% endif %}
+                    <h2 class="mb-5">Resultado</h2>
 
-                    <form method="post">
-                        {% csrf_token%}
-                        {{ form.as_p }}
+                    <ul>
 
-                        <input type="submit" value="iniciar sesion">
-                    </form>
-                
-                   
-                    
-                       
-                    </div>
-          
+                        {% for comunidad in comunidad %}
+
+                            <li>{{comunidad.campeon}} - {{comunidad.runas}} - {{comunidad.build}}</li>
+
+                        {% endfor %}
+
+                    </ul>
+               
+                 </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src='{% static "AppLOL/js/scripts.js" %}></script>
     </body>
 </html>

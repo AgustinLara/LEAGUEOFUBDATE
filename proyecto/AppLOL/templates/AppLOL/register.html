@@ -32,7 +32,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                    <a class="navbar-brand" href="{%url 'Registrar-Usuario' %}">REGISTRAR</a></li>
+                    
 
                 
                 </ul>
@@ -46,18 +46,20 @@
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
                     <h1 class="mb-0">
-                        INICIO
-                        <span class="text-primary">SESION</span>
+                
+                    REGISTRAR
+                    <span class="text-primary">USUARIO</span>
+                    
                     </h1>
                     {% if errors %}
-                        <p>ERROR AL INICIAR SESION: {{errors}}</p>
+                        <p>REGISTRO DE USUARIO: {{errors}}</p>
                     {% endif %}
 
                     <form method="post">
                         {% csrf_token%}
                         {{ form.as_p }}
 
-                        <input type="submit" value="iniciar sesion">
+                        <input type="submit" value="Registrar">
                     </form>
                 
                    
