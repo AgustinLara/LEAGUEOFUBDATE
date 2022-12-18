@@ -5,3 +5,4 @@ from AppLOL.models import*
 admin.site.register(items)
 admin.site.register(PERSONAJES)
 admin.site.register(comunity)
+admin.site.register(avatar)
