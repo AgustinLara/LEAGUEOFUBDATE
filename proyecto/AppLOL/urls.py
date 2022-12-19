@@ -11,6 +11,7 @@ urlpatterns = [
     path("comunidad/", comunidad, name="people") ,
     path("about/", quienessomos, name="abouut") ,
     path("login/", Login, name="inicio-sesion") , 
+     path("loginavatar/", Login2, name="inicio-sesionavatar") ,
     path("register/", registrar_usuario, name= "Registrar-Usuario") ,
     path("resultados/", resultado_busqueda, name= "Resultado") ,
     path("inicio/", lobby, name= "inicio") ,
