@@ -28,6 +28,7 @@ class AvatarForm(forms.Form):
     imagen =forms.ImageField()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
     pass
@@ -37,4 +38,7 @@ class AvatarForm(forms.Form):
 
 
 >>>>>>> parent of 28473a0 (mesajeria)
+=======
+    
+>>>>>>> 28473a0a6b67b6fe2343e5d9ee12758b789def34
 

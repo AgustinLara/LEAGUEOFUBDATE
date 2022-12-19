@@ -13,14 +13,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def inicio(request):
 <<<<<<< HEAD
 
-    if request.user.is_authenticated:
-        imagen_model= avatar.objects.filter(user= request.user.id).order_by("-id")[0]
-        imagen_url = imagen_model.imagen.url
-
-    else:
-
-        imagen_url= ""
-    return render(request,"AppLOL/base.html", {"imagen_url": imagen_url})
+   
+    return render(request,"AppLOL/base.html")
 
 @login_required
 =======
@@ -58,6 +52,12 @@ def buscar_curso(request):
 
     return render(request, "AppLOL/comunidad.html")
 
+def campeoncmunidad(request):
+    campeon= comunity.objects.all()
+    contexto = {"listado_campeones": campeon}
+
+    return render(request, "AppLOL/comunidad.html", contexto)
+
 def resultado_busqueda(request):
 
     nombre_campeon= request.GET["nombre_campeon"]
@@ -92,6 +92,29 @@ def Login(request):
     formulario = AuthenticationForm()
     return render(request, "AppLOL/login.html", {"form": formulario, "errors": errors})
 
+def Login2(request):
+
+    errors = ""
+
+    if request.method == "POST" :
+        formulario = AuthenticationForm(request, data=request.POST)
+        if  formulario.is_valid():
+            data = formulario.cleaned_data
+            
+            user = authenticate(username= data["username"], password=data["password"])
+
+            if user is not None:
+                login(request, user)
+                return redirect("Avatar")
+            else:
+                return render(request, "AppLOL/iniciosecionavatar.html", {"form": formulario, "errors": "Credenciales INVALIDAS"})
+        else:
+            return render(request, "AppLOL/liniciosecionavatar.html", {"form": formulario, "errors": formulario.errors})
+    formulario = AuthenticationForm()
+    return render(request, "AppLOL/iniciosecionavatar.html", {"form": formulario, "errors": errors})
+
+
+   
 def registrar_usuario(request):
 
     if request.method == "POST" :
@@ -103,6 +126,7 @@ def registrar_usuario(request):
             formulario.save()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             return redirect("inicio-sesionavatar")
 =======
             return redirect("inicio-sesion")
@@ -110,18 +134,24 @@ def registrar_usuario(request):
 =======
             return redirect("Avatar")
 >>>>>>> parent of 28473a0 (mesajeria)
+=======
+            return redirect("inicio-sesionavatar")
+>>>>>>> 28473a0a6b67b6fe2343e5d9ee12758b789def34
        
         else:
                 return render(request, "AppLOL/register.html", { "form": formulario, "errors": formulario.errors})
 
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     formulario= UserRegisterForm()
 <<<<<<< HEAD
 =======
 >>>>>>> parent of 28473a0 (mesajeria)
+=======
+    formulario= UserRegisterForm()
+>>>>>>> 28473a0a6b67b6fe2343e5d9ee12758b789def34
     return render(request, "AppLOL/register.html", { "form": formulario})
-
 @login_required
 def editarusuario(request):
     usuario= request.user
@@ -147,7 +177,7 @@ def editarusuario(request):
 
     return render(request, "AppLOL/editarperfil.html",{"form": miformulario})
 
-@login_required
+
 def  agregar_avatar(request):
 
     if request.method == "POST":
