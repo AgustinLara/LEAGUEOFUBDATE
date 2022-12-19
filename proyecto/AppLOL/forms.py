@@ -10,10 +10,10 @@ class UserRegisterForm(UserCreationForm):
     password2= forms.CharField(label="Repita su Contraseña", widget= forms.PasswordInput)
 
 
-
     class Meta:
         model= User
         fields= ["username", "email","password1", "password2"]
+<<<<<<< HEAD
     
 class UserEditForm(UserCreationForm):
     email= forms.EmailField(label= "Correo Electronico")
@@ -27,7 +27,14 @@ class UserEditForm(UserCreationForm):
 class AvatarForm(forms.Form):
     imagen =forms.ImageField()
 
+<<<<<<< HEAD
+    
+=======
+    pass
+>>>>>>> parent of 9c15975 (intento avatar)
+=======
         
 
 
+>>>>>>> parent of 28473a0 (mesajeria)
 
